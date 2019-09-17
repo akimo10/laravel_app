@@ -54,7 +54,8 @@ class TodoController extends Controller
         // title 秋元
         // $this->todo->title = $request->input('title');
         // $this->todo->save();
-        return redirect()->to('todo');
+        //return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -93,7 +94,8 @@ class TodoController extends Controller
          $input = $request->all();
         $this->todo->find($id)->fill($input)->save();
         // id 3 title 秋元 SQL
-        return redirect()->to('todo');
+        //return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 
     /**
@@ -106,6 +108,7 @@ class TodoController extends Controller
     {
         $this->todo->find($id)->delete();
         // id 3
-        return redirect()->to('todo');
+        //return redirect()->to('todo');
+        return redirect()->route('todo.index');
     }
 }
