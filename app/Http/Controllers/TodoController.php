@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Todo; //追記
+use App\user; //git練習問題追記
 use Auth;  // 追記
 
 class TodoController extends Controller
@@ -23,9 +24,10 @@ class TodoController extends Controller
     public function index()
     {
         $todos = $this->todo->getByUserId(Auth::id());//追記
+        $username = user::where('id',Auth::id())->get();//git練習問題にて追記
         //$todos = $this->todo->all();
         // sql_regcase(string)
-        return view('todo.index', compact('todos'));
+        return view('todo.index', compact('todos' , 'username'));
         // return view('todo.index', ['todos' => $this->todo->all(), 'hoge' => 'わああああああああああ']);
     }
 
